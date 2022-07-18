@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
 import NavButton from "./components/NavButton.vue";
 </script>
 
@@ -7,8 +6,8 @@ import NavButton from "./components/NavButton.vue";
     <header>
         <h1>BlogGenerator</h1>
           <nav>
-            <NavButton class="inline-block" path="/PageOne">Test</NavButton>
-            <NavButton class="inline-block" path="/PageTwo">Test2</NavButton>
+            <NavButton class="inline-block" path="/" title="PathOne"/>
+            <NavButton class="inline-block" path="/" title="PathTwo"/>
           </nav>
     </header>
 </template>
