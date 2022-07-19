@@ -1,31 +1,40 @@
 <script setup lang="ts">
-import NavButton from "./components/NavButton.vue";
+import NavBar from "./components/NavBar.vue";
+import BlogContent from "./pages/BlogContent.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-    <header>
-        <h1>BlogGenerator</h1>
-          <nav>
-            <NavButton class="inline-block" path="/" title="PathOne"/>
-            <NavButton class="inline-block" path="/" title="PathTwo"/>
-          </nav>
-    </header>
+    <div class="container">
+        <NavBar />
+        <BlogContent class="blog-content" />
+        <Footer />
+    </div>
 </template>
 
 <style scoped>
-  .inline-block {
-    display: inline-block;
-    width: 50%;
-  }
-
-  header {
-    border: 1px solid black;
+/* .blog-content {
     position: fixed;
-    top: 0;
+    top: 5vh;
+    max-height: 90vh;
+    min-height: 400px;
     left: 0;
 
     width: 100vw;
 
-    padding: 0 10%;
-  }
+    overflow-y: scroll;
+} */
+
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+
+    max-height: 100vh;
+}
 </style>
