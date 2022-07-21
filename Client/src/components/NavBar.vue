@@ -6,8 +6,8 @@ import NavButton from "./NavButton.vue";
     <header>
         <h1>BlogGenerator</h1>
         <nav>
-            <NavButton class="inline-block" path="/" title="PathOne" />
-            <NavButton class="inline-block" path="/" title="PathTwo" />
+            <NavButton class="inline-block nav-button" path="/" title="PathOne" />
+            <NavButton class="inline-block nav-button" path="/" title="PathTwo" />
         </nav>
     </header>
 </template>
@@ -15,9 +15,10 @@ import NavButton from "./NavButton.vue";
 <style scoped>
 .inline-block {
     display: inline-block;
-    
-    min-width: 100px;
-    width: 10%;
+}
+
+.nav-button {
+    margin: 0 1em 0 0;
 }
 
 header {

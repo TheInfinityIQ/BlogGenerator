@@ -13,18 +13,6 @@ import Footer from "./components/Footer.vue";
 </template>
 
 <style scoped>
-/* .blog-content {
-    position: fixed;
-    top: 5vh;
-    max-height: 90vh;
-    min-height: 400px;
-    left: 0;
-
-    width: 100vw;
-
-    overflow-y: scroll;
-} */
-
 .container {
     position: fixed;
     left: 0;
@@ -36,5 +24,15 @@ import Footer from "./components/Footer.vue";
     overflow-y: scroll;
 
     max-height: 100vh;
+}
+
+header, footer {
+    height: 7vh;
+    min-height: 80px;
+    width: 100vw;
+
+    padding: 0 10%;
+
+    border: 1px solid black;
 }
 </style>

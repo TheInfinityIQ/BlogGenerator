@@ -22,10 +22,11 @@
         min-height: 200px;
 
         border: 1px solid black;
+        border-radius: 15px;
 
         padding: 2em;
 
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     h3 {
