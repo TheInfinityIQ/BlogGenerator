@@ -43,6 +43,10 @@
             "Bogus": {
               "target": "Package",
               "version": "[34.0.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

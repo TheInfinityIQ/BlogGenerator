@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "+4Shdf4A/6q6IjNVXDNlpXSZKNzjdRf8NEplMyQLgBwAT8nCwyinsEpRz5ZlEoAtvbcreeKMivhvgxk2UsqBIA==",
+  "dgSpecHash": "WxFiTFwmBNPqBHPWVAoGWcKvBRzURpHBuMRC2m/OKyYO5ZKOYYY1uVfmf7HSQO9amhFapd7pg9YdX6VgPHnYUw==",
   "success": true,
   "projectFilePath": "C:\\CodingProjects\\EasyVue3\\Backend\\API\\API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dawso\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512"
+    "C:\\Users\\dawso\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\dawso\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
   ],
   "logs": []
 }

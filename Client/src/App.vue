@@ -17,7 +17,7 @@ import Footer from "./components/Footer.vue";
     position: fixed;
     left: 0;
     top: 0;
-    
+
     display: flex;
     flex-direction: column;
 
@@ -26,7 +26,8 @@ import Footer from "./components/Footer.vue";
     max-height: 100vh;
 }
 
-header, footer {
+header,
+footer {
     height: 7vh;
     min-height: 80px;
     width: 100vw;

@@ -9,6 +9,7 @@
         <Blog class="blog" title="test" content="this is a blog with text"/>
         <Blog class="blog" title="test" content="this is a blog with text"/>
         <Blog class="blog" title="test" content="this is a blog with text"/>
+        <Blog class="blog" title="test" content="this is a blog with text"/>
     </div>
 </template>
 
