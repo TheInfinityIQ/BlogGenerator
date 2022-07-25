@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<DataRepository>(container =>
 {
     var db = new DataRepository();
+    db.AddBlogs(5);
     return db;
 });
 
@@ -21,7 +22,9 @@ app.MapGet("/blog", ([FromServices] DataRepository db) =>
         return Results.NotFound();
     }
 
-    return Results.Ok(db.Blogs);
+    BlogResponse br = new BlogResponse(db.Blogs);
+
+    return Results.Ok(br);
 });
 
 app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>

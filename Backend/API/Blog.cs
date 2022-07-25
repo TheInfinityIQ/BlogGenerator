@@ -1,5 +1,14 @@
 ﻿using System;
 
+public class BlogResponse
+{ 
+	public List<Blog> blogs { get; set; }
+	public BlogResponse(List<Blog> blogs)
+	{ 
+		this.blogs = blogs;
+	}
+}
+
 public class Blog
 {
 	private static int _uniqueId = 0;
@@ -16,5 +25,4 @@ public class Blog
 	{
 		Id = _uniqueId++;
 	}
-
 }

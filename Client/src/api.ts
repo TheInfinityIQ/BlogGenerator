@@ -60,6 +60,9 @@ class Api extends BaseApi {
     }
 
     public async GetAllBlogs(): Promise<Blog> {
+        const uri: string = "blog"
+        var response: Promise<> = await this.SendGETRequestAsync(uri);
+        
         return {};
     }
 }

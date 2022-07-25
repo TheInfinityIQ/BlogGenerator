@@ -9,6 +9,7 @@ public class DataRepository
 
 	public DataRepository()
 	{
+		this.Blogs = new List<Blog>();
 		_faker = new Faker<Blog>()
 			.RuleFor(blog => blog.Title, f => f.Random.Words(f.Random.Int(2, 5)))
 			.RuleFor(blog => blog.Content, f => f.Lorem.Sentence(f.Random.Int(3, 10)));

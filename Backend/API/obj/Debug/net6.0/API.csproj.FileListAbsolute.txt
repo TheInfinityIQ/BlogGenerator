@@ -4,7 +4,6 @@ C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\API.exe
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\API.deps.json
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\API.runtimeconfig.json
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\API.dll
-C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\ref\API.dll
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\API.pdb
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\Bogus.dll
 C:\CodingProjects\EasyVue3\Backend\API\obj\Debug\net6.0\API.csproj.AssemblyReference.cache
@@ -26,3 +25,4 @@ C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.S
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\CodingProjects\EasyVue3\Backend\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\CodingProjects\EasyVue3\Backend\API\obj\Debug\net6.0\API.MvcApplicationPartsAssemblyInfo.cs
+C:\CodingProjects\EasyVue3\Backend\API\obj\Debug\net6.0\refint\API.dll
