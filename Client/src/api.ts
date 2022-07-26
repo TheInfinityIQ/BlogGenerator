@@ -57,15 +57,15 @@ class Api extends BaseApi {
     }
 
     public async GetAllBlogs(): Promise<BlogsResponse> {
-        const uri: string = "blog"
+        const uri: string = "blog";
         let response: Response = await this.SendGETRequestAsync(uri);
         let jsonResponse: BlogsResponse = await response.json();
-        
+
         return jsonResponse;
     }
 
     public async GetBlog(id: number): Promise<BlogResponse> {
-        const uri: string = `blog/${id}`
+        const uri: string = `blog/${id}`;
         let response: Response = await this.SendGETRequestAsync(uri);
         let jsonResponse: BlogResponse = await response.json();
 
@@ -79,12 +79,18 @@ class Api extends BaseApi {
         return response;
     }
 
-    public async UpdateBlog(id: number, blog: Blog): Promise<Response>
-    {
+    public async UpdateBlog(id: number, blog: Blog): Promise<Response> {
         const uri: string = `blog/${id}`;
         blog.id = id; // Ensures ID matches when updating blog in backend
         let response = await client.SendPUTRequestAsync(uri, blog);
-        
+
+        return response;
+    }
+
+    public async AddBlog(blog: Blog): Promise<Response> {
+        const uri: string = "blog";
+        let response: Response = await client.SendPOSTRequestAsync(uri, blog);
+
         return response;
     }
 }

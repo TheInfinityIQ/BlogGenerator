@@ -7,18 +7,14 @@ const { title, content } = defineProps<{
     content: string;
 }>();
 
-// let thing: BlogResponse = await client.GetBlog(3);
-// console.log(thing);
-
-// let thing: Response = await client.DeleteBlog(1);
-// console.log(thing);
-
-let updatedBlog: Blog = {
+let blogToAdd: Blog = {
     id: 0,
-    title: "this is my updated blog title",
-    content: "this is the content of the blog"
+    title: "AddedBlog",
+    content: "Content"
 }
-let thing: Response = await client.UpdateBlog(1, updatedBlog);
+
+let response = client.AddBlog(blogToAdd);
+console.log(response);
 </script>
 
 <template>

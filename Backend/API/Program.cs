@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+                          builder.WithOrigins("http://localhost:3000", "https://localhost:3000").AllowAnyMethod().AllowAnyHeader();
                       });
 });
 
@@ -72,7 +72,7 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
     Blog toAdd = new Blog(blog.Title, blog.Content);
     db.Blogs.Add(toAdd);
 
-    return Results.Created("https://localhost:7240/blog{toAdd.Id}", toAdd);
+    return Results.Created("https://localhost:7240/blog/{toAdd.Id}", toAdd);
 });
 
 app.MapDelete("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>
