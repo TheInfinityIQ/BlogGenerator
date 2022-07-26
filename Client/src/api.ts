@@ -71,6 +71,13 @@ class Api extends BaseApi {
 
         return jsonResponse;
     }
+
+    public async DeleteBlog(id: number): Promise<Response> {
+        const uri: string = `blog/${id}`;
+        let response: Response = await this.SendDELETERequestAsync(uri);
+
+        return response;
+    }
 }
 
 let client = new Api();

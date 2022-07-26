@@ -7,7 +7,10 @@ const { title, content } = defineProps<{
     content: string;
 }>();
 
-let thing: BlogResponse = await client.GetBlog(3);
+// let thing: BlogResponse = await client.GetBlog(3);
+// console.log(thing);
+
+let thing: Response = await client.DeleteBlog(1);
 console.log(thing);
 </script>
 
