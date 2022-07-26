@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogsResponse, BlogResponse } from "@/models";
+import type { BlogsResponse, BlogResponse, Blog } from "@/models";
 import client from "../api";
 
 const { title, content } = defineProps<{
@@ -10,8 +10,15 @@ const { title, content } = defineProps<{
 // let thing: BlogResponse = await client.GetBlog(3);
 // console.log(thing);
 
-let thing: Response = await client.DeleteBlog(1);
-console.log(thing);
+// let thing: Response = await client.DeleteBlog(1);
+// console.log(thing);
+
+let updatedBlog: Blog = {
+    id: 0,
+    title: "this is my updated blog title",
+    content: "this is the content of the blog"
+}
+let thing: Response = await client.UpdateBlog(1, updatedBlog);
 </script>
 
 <template>

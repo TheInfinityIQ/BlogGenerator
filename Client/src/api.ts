@@ -1,4 +1,4 @@
-import type { BlogResponse, BlogsResponse } from "./models";
+import type { Blog, BlogResponse, BlogsResponse } from "./models";
 
 const enum HttpMethods {
     GET = "GET",
@@ -76,6 +76,15 @@ class Api extends BaseApi {
         const uri: string = `blog/${id}`;
         let response: Response = await this.SendDELETERequestAsync(uri);
 
+        return response;
+    }
+
+    public async UpdateBlog(id: number, blog: Blog): Promise<Response>
+    {
+        const uri: string = `blog/${id}`;
+        blog.id = id; // Ensures ID matches when updating blog in backend
+        let response = await client.SendPUTRequestAsync(uri, blog);
+        
         return response;
     }
 }
