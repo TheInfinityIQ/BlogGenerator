@@ -7,7 +7,7 @@ const { title, content } = defineProps<{
     content: string;
 }>();
 
-let thing: BlogsResponse = await client.GetAllBlogs();
+let thing: BlogResponse = await client.GetBlog(3);
 console.log(thing);
 </script>
 

@@ -37,7 +37,7 @@ app.MapGet("/blog", ([FromServices] DataRepository db) =>
     BlogsResponse br = new BlogsResponse(db.Blogs);
 
     return Results.Ok(br);
-});
+}); 
 
 app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>
 {

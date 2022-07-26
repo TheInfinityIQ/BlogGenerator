@@ -63,6 +63,14 @@ class Api extends BaseApi {
         
         return jsonResponse;
     }
+
+    public async GetBlog(id: number): Promise<BlogResponse> {
+        const uri: string = `blog/${id}`
+        let response: Response = await this.SendGETRequestAsync(uri);
+        let jsonResponse: BlogResponse = await response.json();
+
+        return jsonResponse;
+    }
 }
 
 let client = new Api();
