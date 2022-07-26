@@ -3,8 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var MyAllowSpecificOrigins = "MyFrontEnd";
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+                      })
+    ;
+});
 
 builder.Services.AddSingleton<DataRepository>(container =>
 {
@@ -14,6 +26,7 @@ builder.Services.AddSingleton<DataRepository>(container =>
 });
 
 var app = builder.Build();
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapGet("/blog", ([FromServices] DataRepository db) =>
 {
@@ -22,7 +35,7 @@ app.MapGet("/blog", ([FromServices] DataRepository db) =>
         return Results.NotFound();
     }
 
-    BlogResponse br = new BlogResponse(db.Blogs);
+    BlogsResponse br = new BlogsResponse(db.Blogs);
 
     return Results.Ok(br);
 });

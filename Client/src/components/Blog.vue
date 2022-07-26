@@ -1,39 +1,45 @@
 <script setup lang="ts">
-    const { title, content } = defineProps<{
-        title: string;
-        content: string;
-    }>()
+import type { BlogsResponse, BlogResponse } from "@/models";
+import client from "../api";
+
+const { title, content } = defineProps<{
+    title: string;
+    content: string;
+}>();
+
+let thing: BlogsResponse = await client.GetAllBlogs();
+console.log(thing);
 </script>
 
 <template>
     <div class="blog-container">
         <h3>{{ title }}</h3>
         <p>{{ content }}</p>
+        <!-- <h3>{{ getTestBlog.title }}</h3>
+                <p>{{ getTestBlog.content }}</p> -->
     </div>
 </template>
 
 <style scoped>
-    .blog-container {
-        width: 50%;
-        min-width: 350px;
-        max-width: 500px;
-        
-        height: 15vh;
-        min-height: 200px;
+.blog-container {
+    width: 50%;
+    min-width: 350px;
+    max-width: 500px;
 
-        border: 1px solid black;
-        border-radius: 15px;
+    height: 15vh;
+    min-height: 200px;
 
-        padding: 2em;
+    border: 1px solid black;
+    border-radius: 15px;
 
-        overflow-y: auto;
-    }
+    padding: 2em;
 
-    h3 {
+    overflow-y: auto;
+}
 
-    }
+h3 {
+}
 
-    p {
-
-    }
+p {
+}
 </style>

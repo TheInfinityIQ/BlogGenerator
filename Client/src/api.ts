@@ -1,7 +1,4 @@
-import type { BlockCodegenNode } from "@vue/compiler-core";
-import { Blog } from "./models";
-
-export {} // Tells Vue that this is a module
+import type { BlogResponse, BlogsResponse } from "./models";
 
 const enum HttpMethods {
     GET = "GET",
@@ -11,7 +8,7 @@ const enum HttpMethods {
 }
 
 class BaseApi {
-    private _path: string = "http://localhost:3000/";
+    private _path: string = "https://localhost:7240";
 
     public async SendGETRequestAsync(uri: string, headers?: HeadersInit): Promise<Response> {
         return this.SendRequestAsync(uri, undefined, HttpMethods.GET, headers);
@@ -59,10 +56,14 @@ class Api extends BaseApi {
         super();
     }
 
-    public async GetAllBlogs(): Promise<Blog> {
+    public async GetAllBlogs(): Promise<BlogsResponse> {
         const uri: string = "blog"
-        var response: Promise<> = await this.SendGETRequestAsync(uri);
+        let response: Response = await this.SendGETRequestAsync(uri);
+        let jsonResponse: BlogsResponse = await response.json();
         
-        return {};
+        return jsonResponse;
     }
 }
+
+let client = new Api();
+export default client;

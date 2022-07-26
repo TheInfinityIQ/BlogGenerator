@@ -1,31 +1,37 @@
 <script setup lang="ts">
-    import Blog from "../components/Blog.vue";
+import Blog from "../components/Blog.vue";
 </script>
 
 <template>
     <div class="blogs-container">
-        <Blog class="blog" title="test" content="this is a blog with text"/>
-        <Blog class="blog" title="test" content="this is a blog with text"/>
-        <Blog class="blog" title="test" content="this is a blog with text"/>
-        <Blog class="blog" title="test" content="this is a blog with text"/>
-        <Blog class="blog" title="test" content="this is a blog with text"/>
-        <Blog class="blog" title="test" content="this is a blog with text"/>
+        <Suspense>
+            <template #default>
+                <Blog class="blog" title="test" content="this is a blog with text" />
+                <!-- <Blog class="blog" title="test" content="this is a blog with text" />
+                <Blog class="blog" title="test" content="this is a blog with text" />
+                <Blog class="blog" title="test" content="this is a blog with text" />
+                <Blog class="blog" title="test" content="this is a blog with text" /> -->
+            </template>
+            <template #fallback>
+                <span>Loading...</span>
+            </template>
+        </Suspense>
     </div>
 </template>
 
 <style scoped>
-    .blogs-container {
-        border: 1px solid pink;
-        
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+.blogs-container {
+    border: 1px solid pink;
 
-        max-height: 86vh;
-        overflow-y: scroll;
-    }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-    .blog {
-        margin: 2em 0;
-    }
+    max-height: 86vh;
+    overflow-y: scroll;
+}
+
+.blog {
+    margin: 2em 0;
+}
 </style>
