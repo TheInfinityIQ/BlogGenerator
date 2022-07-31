@@ -11,7 +11,7 @@ public class BlogsResponse
 
 public class Blog
 {
-    private static int _uniqueId = 1;
+    private static int _uniqueId = 0;
     public int Id { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }

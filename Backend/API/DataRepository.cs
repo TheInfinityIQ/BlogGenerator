@@ -6,7 +6,7 @@ public class DataRepository
 	private Faker<Blog> _faker;
 
 	public List<Blog> Blogs { get; set; }
-
+	 
 	public DataRepository()
 	{
 		this.Blogs = new List<Blog>();

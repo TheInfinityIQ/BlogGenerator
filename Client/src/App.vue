@@ -2,14 +2,18 @@
 import NavBar from "./components/NavBar.vue";
 import BlogContent from "./pages/BlogContent.vue";
 import Footer from "./components/Footer.vue";
+import Test from "./pages/Test.vue";
+import client from "./api";
+import type { Blog } from "./models";
 </script>
 
 <template>
-    <div class="container">
+    <!-- <div class="container">
         <NavBar />
         <BlogContent class="blog-content" />
         <Footer />
-    </div>
+    </div> -->
+    <Test />
 </template>
 
 <style scoped>

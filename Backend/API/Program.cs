@@ -1,3 +1,4 @@
+using API.DTOs;
 using EasyVue3API;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +21,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<DataRepository>(container =>
 {
     var db = new DataRepository();
-    db.AddBlogs(5);
+    //db.AddBlogs(5);
     return db;
 });
 
@@ -37,7 +38,7 @@ app.MapGet("/blog", ([FromServices] DataRepository db) =>
     BlogsResponse br = new BlogsResponse(db.Blogs);
 
     return Results.Ok(br);
-}); 
+});
 
 app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>
 {
@@ -51,7 +52,7 @@ app.MapGet("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) 
     return Results.Ok(blog);
 });
 
-app.MapPut("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id, [FromBody] Blog blog) =>
+app.MapPut("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id, [FromBody] BlogDTO blog) =>
 {
     Blog? blogToEdit = db.Blogs.FirstOrDefault(blog => blog.Id == id);
 
@@ -61,18 +62,19 @@ app.MapPut("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id, 
     }
 
     int i = db.Blogs.IndexOf(blogToEdit);
-    db.Blogs[i] = blog;
+    db.Blogs[i].Title = blog.Title;
+    db.Blogs[i].Content = blog.Content;
 
     return Results.Ok("Blog Updated");
 });
 
-app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] Blog blog) =>
+app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] BlogDTO blog) =>
 {
     //Id passed from UI will not be valid. Needing to create new blog to get generated ID
     Blog toAdd = new Blog(blog.Title, blog.Content);
     db.Blogs.Add(toAdd);
 
-    return Results.Created("https://localhost:7240/blog/{toAdd.Id}", toAdd);
+    return Results.Created("https://localhost:7240/blog/{toAdd.Id}", blog);
 });
 
 app.MapDelete("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>

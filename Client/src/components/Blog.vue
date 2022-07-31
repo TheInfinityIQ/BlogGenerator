@@ -15,6 +15,12 @@ let blogToAdd: Blog = {
 
 let response = client.AddBlog(blogToAdd);
 console.log(response);
+
+let response2 = client.AddBlog(blogToAdd);
+console.log(response2);
+
+let response3 = client.AddBlog(blogToAdd);
+console.log(response3);
 </script>
 
 <template>
