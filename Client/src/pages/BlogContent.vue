@@ -1,34 +1,46 @@
 <script setup lang="ts">
+import client from "@/api";
+import type { BlogsResponse } from "@/models";
 import Blog from "../components/Blog.vue";
+
+const blogsResponse: BlogsResponse = await client.GetAllBlogs();
 </script>
 
 <template>
-    <div class="blogs-container">
-        <Suspense>
-            <template #default>
-                <Blog class="blog" title="test" content="this is a blog with text" />
-            </template>
-            <template #fallback>
-                <span>Loading...</span>
-            </template>
-        </Suspense>
-    </div>
+    <ul class="blogs-container">
+        <li v-for="blog in blogsResponse.blogs">
+            <Blog :title="blog.title" :content="blog.content" class="blog" />
+        </li>
+    </ul>
 </template>
 
 <style scoped>
-.blogs-container {
-    border: 1px solid pink;
 
+.blogs-container {
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    height: 86vh;
-    /* min-height: 86vh; */
+    min-height: 86vh;
+    width: 100vw;
     overflow-y: scroll;
+
+    flex-grow: 1;
+
+    padding: 0;
+    margin: 0;
 }
 
 .blog {
     margin: 2em 0;
 }
+
+li {
+  list-style-type: none;
+  width: 40vw;
+
+  display: flex;
+  justify-content: center;
+}
+
 </style>

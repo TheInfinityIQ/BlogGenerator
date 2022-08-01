@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBar from "./components/NavBar.vue";
 import BlogContent from "./pages/BlogContent.vue";
-import Footer from "./components/Footer.vue";
+import BasicFooter from "./components/FooterComp.vue";
 import Test from "./pages/Test.vue";
 import client from "./api";
 import type { Blog } from "./models";
@@ -9,9 +9,11 @@ import type { Blog } from "./models";
 
 <template>
     <div class="container">
-        <NavBar />
-        <BlogContent class="blog-content" />
-        <Footer />
+        <Nav-Bar />
+        <Suspense>
+            <Blog-Content class="blog-content" />
+        </Suspense>
+        <Basic-Footer />
     </div>
     <!-- <Test /> -->
 </template>
@@ -24,10 +26,10 @@ import type { Blog } from "./models";
 
     display: flex;
     flex-direction: column;
-
-    overflow-y: scroll;
+    align-items: center;
 
     max-height: 100vh;
+    width: 100vw;
 }
 
 header,

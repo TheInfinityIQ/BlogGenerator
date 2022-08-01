@@ -6,21 +6,6 @@ const { title, content } = defineProps<{
     title: string;
     content: string;
 }>();
-
-let blogToAdd: Blog = {
-    id: 0,
-    title: "AddedBlog",
-    content: "Content"
-}
-
-let response = client.AddBlog(blogToAdd);
-console.log(response);
-
-let response2 = client.AddBlog(blogToAdd);
-console.log(response2);
-
-let response3 = client.AddBlog(blogToAdd);
-console.log(response3);
 </script>
 
 <template>
@@ -47,11 +32,5 @@ console.log(response3);
     padding: 2em;
 
     overflow-y: auto;
-}
-
-h3 {
-}
-
-p {
 }
 </style>
