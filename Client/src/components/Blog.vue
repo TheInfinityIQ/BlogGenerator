@@ -10,10 +10,12 @@ const { title, content } = defineProps<{
 
 <template>
     <div class="blog-container">
+        <div class="buttons">
+            <button>Update</button>
+            <button>Delete</button>
+        </div>
         <h2>{{ title }}</h2>
         <p>{{ content }}</p>
-        <!-- <h3>{{ getTestBlog.title }}</h3>
-                <p>{{ getTestBlog.content }}</p> -->
     </div>
 </template>
 
@@ -32,5 +34,9 @@ const { title, content } = defineProps<{
     padding: 2em;
 
     overflow-y: auto;
+}
+
+button {
+    margin-right: 2em;
 }
 </style>
