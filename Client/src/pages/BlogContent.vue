@@ -7,10 +7,6 @@ import Blog from "../components/Blog.vue";
         <Suspense>
             <template #default>
                 <Blog class="blog" title="test" content="this is a blog with text" />
-                <!-- <Blog class="blog" title="test" content="this is a blog with text" />
-                <Blog class="blog" title="test" content="this is a blog with text" />
-                <Blog class="blog" title="test" content="this is a blog with text" />
-                <Blog class="blog" title="test" content="this is a blog with text" /> -->
             </template>
             <template #fallback>
                 <span>Loading...</span>
@@ -27,7 +23,8 @@ import Blog from "../components/Blog.vue";
     align-items: center;
     flex-direction: column;
 
-    max-height: 86vh;
+    height: 86vh;
+    /* min-height: 86vh; */
     overflow-y: scroll;
 }
 

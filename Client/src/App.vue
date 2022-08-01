@@ -8,12 +8,12 @@ import type { Blog } from "./models";
 </script>
 
 <template>
-    <!-- <div class="container">
+    <div class="container">
         <NavBar />
         <BlogContent class="blog-content" />
         <Footer />
-    </div> -->
-    <Test />
+    </div>
+    <!-- <Test /> -->
 </template>
 
 <style scoped>
