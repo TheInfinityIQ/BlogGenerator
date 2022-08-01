@@ -48,3 +48,14 @@ footer {
     border: 1px solid black;
 }
 </style>
+
+<!-- General Styles -->
+<style>
+h1, h2, h3, h4, h5 {
+    font-family: "Zilla Slab", serif;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+}
+</style>

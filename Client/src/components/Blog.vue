@@ -10,7 +10,7 @@ const { title, content } = defineProps<{
 
 <template>
     <div class="blog-container">
-        <h3>{{ title }}</h3>
+        <h2>{{ title }}</h2>
         <p>{{ content }}</p>
         <!-- <h3>{{ getTestBlog.title }}</h3>
                 <p>{{ getTestBlog.content }}</p> -->
