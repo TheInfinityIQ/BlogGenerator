@@ -32,6 +32,11 @@ import type { Blog } from "./models";
     width: 100vw;
 }
 
+.blog-content {
+    display: flex;
+    justify-content: center;
+}
+
 header,
 footer {
     height: 7vh;

@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<DataRepository>(container =>
 {
     var db = new DataRepository();
-    db.AddBlogs(15);
+    db.AddBlogs(97);
     return db;
 });
 

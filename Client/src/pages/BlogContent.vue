@@ -20,6 +20,9 @@ const blogsResponse: BlogsResponse = await client.GetAllBlogs();
     display: flex;
     align-items: center;
     flex-direction: column;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 5em;
 
     min-height: 86vh;
     width: 100vw;
@@ -31,6 +34,7 @@ const blogsResponse: BlogsResponse = await client.GetAllBlogs();
 
 .blog {
     margin: 2em 0;
+    width: 25vw;
 }
 
 li {
