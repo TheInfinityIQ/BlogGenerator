@@ -25,8 +25,6 @@ const blogsResponse: BlogsResponse = await client.GetAllBlogs();
     width: 100vw;
     overflow-y: scroll;
 
-    flex-grow: 1;
-
     padding: 0;
     margin: 0;
 }
@@ -37,7 +35,6 @@ const blogsResponse: BlogsResponse = await client.GetAllBlogs();
 
 li {
   list-style-type: none;
-  width: 40vw;
 
   display: flex;
   justify-content: center;
