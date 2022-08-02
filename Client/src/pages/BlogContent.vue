@@ -1,21 +1,34 @@
 <script setup lang="ts">
 import client from "@/api";
-import type { BlogsResponse } from "@/models";
+import type { BlogsResponse, BlogResponse } from "@/models";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "vue";
 import Blog from "../components/Blog.vue";
+// import Modal from "../components/Modal.vue";
 
-const blogsResponse: BlogsResponse = await client.GetAllBlogs();
+let blogs = ref<BlogResponse[]>([]);
+
+onMounted(async () => {
+    const blogsResponse = await client.GetAllBlogs();
+    blogs.value = blogsResponse.blogs;
+});
+
+const deleteById = (id: number) => {
+    client.DeleteBlog(id);
+    blogs.value = blogs.value.filter(blog => blog.id != id);
+}
 </script>
 
 <template>
     <ul class="blogs-container">
-        <li v-for="blog in blogsResponse.blogs">
-            <Blog :title="blog.title" :content="blog.content" class="blog" />
+        <li v-for="blog in blogs" :key="blog.id">
+            <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" />
         </li>
     </ul>
+    <!-- <Modal v-show="false" content="" title=""/> -->
 </template>
 
 <style scoped>
-
 .blogs-container {
     display: flex;
     align-items: center;
@@ -38,10 +51,9 @@ const blogsResponse: BlogsResponse = await client.GetAllBlogs();
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
-
 </style>

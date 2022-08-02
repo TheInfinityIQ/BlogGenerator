@@ -1,11 +1,9 @@
 export type BlogsResponse = {
-    blogs: [
-        {
-            id: number;
-            title: string;
-            content: string;
-        }
-    ];
+    blogs: {
+        id: number;
+        title: string;
+        content: string;
+    }[];
 };
 
 export type BlogResponse = {

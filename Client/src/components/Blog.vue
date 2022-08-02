@@ -2,17 +2,19 @@
 import type { BlogsResponse, BlogResponse, Blog } from "@/models";
 import client from "../api";
 
-const { title, content } = defineProps<{
+const { title, content, id } = defineProps<{
     title: string;
     content: string;
+    id: number;
 }>();
 </script>
 
 <template>
     <div class="blog-container">
         <div class="buttons">
-            <button>Update</button>
-            <button>Delete</button>
+            <button @click="$emit('isUpdating')">Update</button>
+            <button @click="$emit('isDeleted', id)">Delete</button>
+            <!--  -->
         </div>
         <h2>{{ title }}</h2>
         <p>{{ content }}</p>
@@ -32,7 +34,6 @@ const { title, content } = defineProps<{
     border-radius: 15px;
 
     padding: 2em;
-
     overflow-y: auto;
 }
 
