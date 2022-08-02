@@ -2,6 +2,8 @@
 
 public class BlogsResponse
 {
+    public int one = 1;
+
     public List<Blog> blogs { get; set; }
     public BlogsResponse(List<Blog> blogs)
     {
