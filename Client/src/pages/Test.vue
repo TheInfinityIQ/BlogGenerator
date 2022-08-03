@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import client from "@/api.js";
+import client from "../api";
 import type { Blog } from "@/models.js";
 
 let blogToAdd: Blog = {
