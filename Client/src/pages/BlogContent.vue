@@ -7,6 +7,9 @@ import Blog from "../components/Blog.vue";
 import Modal from "../components/Modal.vue";
 
 let blogs = ref<BlogResponse[]>([]);
+let isUpdating: boolean = false;
+
+let updatedBlog: BlogResponse;
 
 onMounted(async () => {
     const blogsResponse = await client.GetAllBlogs();
@@ -18,17 +21,28 @@ const deleteById = (id: number) => {
     blogs.value = blogs.value.filter(blog => blog.id != id);
 }
 
-const isUpdating = (id: number, title: string, content: string) => {
-    client.UpdateBlog();
+const updating = (id: number) => {
+    updatedBlog.id = id;
+    
+    isUpdating = true;
+}
+
+const updateConfirmed = (updatedBlog: BlogResponse, newTitle: string, newContent: string) => {
+    updatedBlog.title = newTitle;
+    updatedBlog.content = newContent;
+    
+    client.UpdateBlog(updatedBlog.id, updatedBlog);
+
+    isUpdating = false;
 }
 </script>
 
 <template>
 <!-- Container needs to wrap modal or it will make blogs off center -->
     <ul class="blogs-container">
-    <Modal title="Test" content="Test" class="z-1" v-show="true"/>
+    <Modal title="Test" content="Test" class="z-1" v-show="true" @confirmedUpdate="updateConfirmed"/>
         <li v-for="blog in blogs" :key="blog.id">
-            <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" />
+            <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" @isUpdating="updating"/>
         </li>
     </ul>
 </template>

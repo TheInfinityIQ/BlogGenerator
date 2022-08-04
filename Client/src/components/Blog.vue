@@ -10,11 +10,10 @@ const { title, content, id } = defineProps<{
 </script>
 
 <template>
-    <div class="blog-container">
+    <div class="blog-container">a
         <div class="buttons">
-            <button @click="$emit('isUpdating')">Update</button>
+            <button @click="$emit('isUpdating', id, title, content)">Update</button>
             <button @click="$emit('isDeleted', id)">Delete</button>
-            <!--  -->
         </div>
         <h2>{{ title }}</h2>
         <p>{{ content }}</p>

@@ -11,7 +11,7 @@ const { title, content } = defineProps<{
             <h6>Update</h6>
             <div class="rows">
                 <div class="row">
-                    <label for="title">Title</label>
+                    <label for="title" >Title</label>
                     <input type="text" id="title">
                 </div>
                 <div class="row">
@@ -19,7 +19,8 @@ const { title, content } = defineProps<{
                     <textarea id="content" cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <button @click="">Confirm Update</button>
+            <button @click="$emit">Confirm Update</button>
+            <button @click="">Cancel</button>
         </article>
     </div>
 </template>
