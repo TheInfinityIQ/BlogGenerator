@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import type { BlogsResponse, BlogResponse, Blog } from "@/models";
-import client from "../api";
-
 const { title, content, id } = defineProps<{
     title: string;
     content: string;
@@ -10,7 +7,7 @@ const { title, content, id } = defineProps<{
 </script>
 
 <template>
-    <div class="blog-container">a
+    <div class="blog-container">
         <div class="buttons">
             <button @click="$emit('isUpdating', id, title, content)">Update</button>
             <button @click="$emit('isDeleted', id)">Delete</button>

@@ -65,7 +65,7 @@ app.MapPut("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id, 
     db.Blogs[i].Title = blog.Title;
     db.Blogs[i].Content = blog.Content;
 
-    return Results.Ok("Blog Updated");
+    return Results.Ok(db.Blogs[i]);
 });
 
 app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] BlogDTO blog) =>

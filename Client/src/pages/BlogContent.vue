@@ -1,15 +1,22 @@
 <script setup lang="ts">
 import client from "@/api";
 import type { BlogsResponse, BlogResponse } from "@/models";
-import { ref } from "@vue/reactivity";
+import { ref, reactive } from "@vue/reactivity";
 import { onMounted } from "vue";
 import Blog from "../components/Blog.vue";
 import Modal from "../components/Modal.vue";
 
 let blogs = ref<BlogResponse[]>([]);
-let isUpdating: boolean = false;
 
-let updatedBlog: BlogResponse;
+let isUpdating = ref<boolean>(false);
+let updatedBlog: BlogResponse = {
+    id: 0,
+    title: "",
+    content: "",
+};
+
+let initModalTitle = ref("");
+let initModalContent = ref("");
 
 onMounted(async () => {
     const blogsResponse = await client.GetAllBlogs();
@@ -18,31 +25,50 @@ onMounted(async () => {
 
 const deleteById = (id: number) => {
     client.DeleteBlog(id);
-    blogs.value = blogs.value.filter(blog => blog.id != id);
-}
+    blogs.value = blogs.value.filter((blog) => blog.id != id);
+};
 
-const updating = (id: number) => {
+const updating = (id: number, title: string, content: string) => {
+    console.log("Inside updating");
+
+    initModalTitle.value = title;
+    initModalContent.value = content;
+
     updatedBlog.id = id;
-    
-    isUpdating = true;
-}
 
-const updateConfirmed = (updatedBlog: BlogResponse, newTitle: string, newContent: string) => {
-    updatedBlog.title = newTitle;
-    updatedBlog.content = newContent;
-    
+    isUpdating.value = true;
+};
+
+const submitUpdate = async (id: number, title: string, content: string) => {
+    updatedBlog.title = title;
+    updatedBlog.content = content;
+
+    let blogToUpdate = blogs.value.find((blog) => blog.id === id);
+
+    if (!blogToUpdate) {
+        alert("So uh... we messed up... bad.");
+        return;
+    }
+
+    blogToUpdate.title = title;
+    blogToUpdate.content = content;
+
     client.UpdateBlog(updatedBlog.id, updatedBlog);
 
-    isUpdating = false;
+    isUpdating.value = false;
+};
+
+const updateCancelled = () => {
+    isUpdating.value = false;
 }
 </script>
 
 <template>
-<!-- Container needs to wrap modal or it will make blogs off center -->
+    <!-- Container needs to wrap modal or it will make blogs off center -->
     <ul class="blogs-container">
-    <Modal title="Test" content="Test" class="z-1" v-show="true" @confirmedUpdate="updateConfirmed"/>
+        <Modal :title="initModalTitle" :content="initModalContent" :id="updatedBlog.id" class="z-1" v-show="isUpdating" @submit="submitUpdate" @cancel="updateCancelled" />
         <li v-for="blog in blogs" :key="blog.id">
-            <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" @isUpdating="updating"/>
+            <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" @isUpdating="updating" />
         </li>
     </ul>
 </template>
