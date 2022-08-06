@@ -23,5 +23,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: start;
+
+    padding-left: 3em;
 }
 </style>

@@ -9,11 +9,11 @@ import type { Blog } from "./models";
 
 <template>
     <div class="container">
-        <Nav-Bar />
+        <Nav-Bar class="marginals"/>
         <Suspense>
             <Blog-Content class="blog-content" />
         </Suspense>
-        <Basic-Footer />
+        <Basic-Footer class="marginals"/>
     </div>
     <!-- <Test /> -->
 </template>
@@ -28,24 +28,13 @@ import type { Blog } from "./models";
     flex-direction: column;
     align-items: center;
 
-    max-height: 100vh;
+    height: 100vh;
     width: 100vw;
 }
 
 .blog-content {
     display: flex;
     justify-content: center;
-}
-
-header,
-footer {
-    height: 7vh;
-    min-height: 80px;
-    width: 100vw;
-
-    padding: 0 10%;
-
-    border: 1px solid black;
 }
 </style>
 

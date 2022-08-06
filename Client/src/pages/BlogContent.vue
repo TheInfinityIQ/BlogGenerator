@@ -99,6 +99,7 @@ const updateCancelled = () => {
 .blog {
     margin: 2em 0;
     width: 25vw;
+    min-width: 280px;
 }
 
 li {
@@ -106,5 +107,32 @@ li {
 
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 774px) {
+    .blogs-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-flow: row;
+        flex-wrap: wrap;
+        gap: 0.5em;
+
+        min-height: 86vh;
+        width: 100vw;
+        overflow-y: scroll;
+
+        padding: 0;
+        margin: 0;
+
+        z-index: auto;
+    }
+}
+
+@media only screen and (max-width: 707px) {
+    .blog {
+        margin: 0.25em 0;
+        width: 90vw;
+    }
 }
 </style>
