@@ -2,7 +2,7 @@
 
 <template>
     <footer>
-        <p>this is temp footer text</p>
+        <p>Project Made by Dawson Kelly. Using .Net and Vue3</p>
     </footer>
 </template>
 
