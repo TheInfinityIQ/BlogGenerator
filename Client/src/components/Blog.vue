@@ -36,5 +36,24 @@ const { title, content, id } = defineProps<{
 
 button {
     margin-right: 2em;
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: dimgray;
+    color: white;
+
+    padding: 0.33em;
+
+    font-weight: 500;
+    font-family: 'inter', 'Courier New', Courier, monospace;
+}
+
+button:hover {
+    background-color: darkolivegreen;
+}
+
+button:active {
+    background-color: black;
 }
 </style>

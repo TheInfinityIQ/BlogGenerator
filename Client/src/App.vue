@@ -46,5 +46,29 @@ h1, h2, h3, h4, h5 {
 
 p {
     font-family: 'Inter', sans-serif;
+    color: dimgray;
+}
+
+button {
+    margin-right: 2em;
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: dimgray;
+    color: white;
+
+    padding: 0.33em;
+
+    font-weight: 500;
+    font-family: 'inter', 'Courier New', Courier, monospace;
+}
+
+button:hover {
+    background-color: darkolivegreen;
+}
+
+button:active {
+    background-color: black;
 }
 </style>
