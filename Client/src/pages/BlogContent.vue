@@ -116,7 +116,7 @@ li {
         flex-direction: column;
         flex-flow: row;
         flex-wrap: wrap;
-        gap: 0.5em;
+        gap: 2em;
 
         min-height: 86vh;
         width: 100vw;
@@ -126,6 +126,11 @@ li {
         margin: 0;
 
         z-index: auto;
+    }
+
+    .blog {
+        margin: 0.25em 0;
+        width: 40vw;
     }
 }
 
