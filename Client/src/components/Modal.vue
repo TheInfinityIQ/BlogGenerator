@@ -45,6 +45,8 @@ const { id, title, content } = defineProps<{
     align-items: center;
 
     background-color: #000000da;
+
+    z-index: 999;
 }
 
 .modal {

@@ -19,18 +19,19 @@ const { title, content, id } = defineProps<{
 
 <style scoped>
 .blog-container {
-    width: 50%;
-    min-width: 350px;
+    width: 40vw;
     max-width: 500px;
 
-    height: 15vh;
-    min-height: 200px;
+    min-height: 350px;
 
     border: 1px solid black;
     border-radius: 15px;
 
     padding: 2em;
-    overflow-y: auto;
+    
+    overflow-y: scroll;
+
+    background-color: white;
 }
 
 button {

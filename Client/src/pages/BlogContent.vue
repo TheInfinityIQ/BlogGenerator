@@ -93,7 +93,7 @@ const updateCancelled = () => {
     padding: 0;
     margin: 0;
 
-    z-index: auto;
+    background-color: #2c3e50;
 }
 
 .blog {
