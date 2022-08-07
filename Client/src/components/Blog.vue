@@ -25,7 +25,7 @@ const { title, content, id } = defineProps<{
     min-height: 350px;
 
     border: 1px solid black;
-    border-radius: 15px;
+    border-radius: 5px;
 
     padding: 2em;
     
