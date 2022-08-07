@@ -55,7 +55,7 @@ button {
     border-radius: 5px;
     border: none;
 
-    background-color: dimgray;
+    background-color: rgb(105, 105, 105);
     color: white;
 
     padding: 0.33em;
@@ -65,10 +65,10 @@ button {
 }
 
 button:hover {
-    background-color: darkolivegreen;
+    background-color: rgb(125, 125, 125);
 }
 
 button:active {
-    background-color: black;
+    background-color: rgb(85, 85, 85);
 }
 </style>
