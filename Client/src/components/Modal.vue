@@ -19,7 +19,7 @@ const { id, title, content } = defineProps<{
             <div class="rows">
                 <div class="row">
                     <label for="title">Title</label>
-                    <input type="text" id="title" v-model="title"/>
+                    <input type="text" id="title" v-model="title" />
                 </div>
                 <div class="row">
                     <label for="content">Content</label>
@@ -33,6 +33,10 @@ const { id, title, content } = defineProps<{
 </template>
 
 <style scoped>
+textarea {
+    resize: none;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -93,6 +97,7 @@ p {
 }
 
 button {
+    background-color: hsl(210, 29%, 24%);
     color: white;
 
     width: 8em;
@@ -101,5 +106,12 @@ button {
     border-radius: 16px;
 
     margin: 0.25em;
+}
+
+button:hover {
+    background-color: hsl(210, 39%, 39%);
+}
+button:active {
+    background-color: hsl(210, 19%, 19%);
 }
 </style>
