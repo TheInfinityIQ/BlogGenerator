@@ -4,7 +4,8 @@ import type { BlogsResponse, BlogResponse } from "@/models";
 import { ref, reactive } from "@vue/reactivity";
 import { onMounted } from "vue";
 import Blog from "../components/Blog.vue";
-import Modal from "../components/Modal.vue";
+import UpdateModal from "../components/UpdateBlogModal.vue";
+// import ConfigureBlogsModal from "../components/ConfigureBlogsModal.vue";
 
 let blogs = ref<BlogResponse[]>([]);
 
@@ -66,7 +67,8 @@ const updateCancelled = () => {
 <template>
     <!-- Container needs to wrap modal or it will make blogs off center -->
     <ul class="blogs-container">
-        <Modal :title="initModalTitle" :content="initModalContent" :id="updatedBlog.id" class="z-1" v-show="isUpdating" @submit="submitUpdate" @cancel="updateCancelled" />
+        <UpdateModal :title="initModalTitle" :content="initModalContent" :id="updatedBlog.id" class="z-1" v-show="isUpdating" @submit="submitUpdate" @cancel="updateCancelled" />
+        <!-- <ConfigureBlogsModal/> -->
         <li v-for="blog in blogs" :key="blog.id">
             <Blog :title="blog.title" :content="blog.content" :id="blog.id" class="blog" @isDeleted="deleteById" @isUpdating="updating" />
         </li>

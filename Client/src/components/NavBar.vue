@@ -1,19 +1,16 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <header>
-        <h1>BlogGenerator</h1>
-    </header>
+    <nav>
+        <header>
+            <h1>BlogGenerator</h1>
+        </header>
+        <button>Generate</button>
+    </nav>
 </template>
 
 <style scoped>
-.inline-block {
-    display: inline-block;
-}
-
-header {
+nav {
     height: 7vh;
     min-height: 80px;
     width: 100vw;
@@ -25,5 +22,13 @@ header {
     justify-content: start;
 
     padding-left: 3em;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+header {
+    
 }
 </style>

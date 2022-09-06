@@ -12,6 +12,12 @@ export type BlogResponse = {
     content: string;
 };
 
+export type GeneratorResponse = {
+    numBlog: number;
+    numWords: number;
+    numSentences: number;
+};
+
 export type Blog = {
     id: number;
     title: string;

@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import type { Blog, BlogResponse } from "@/models.js";
-import { ref } from "vue";
-
-const { id, title, content } = defineProps<{
-    id: number;
-    title: string;
-    content: string;
+const { numBlogs, numWords, numSentences } = defineProps<{
+    numBlogs: number;
+    numWords: string;
+    numSentences: string;
 }>();
-
-// const reaTitle = ref(title);
-// const reaContent = ref(content);
 </script>
 
 <template>
     <div class="modal-overlay">
         <article class="modal">
-            <h6>Update</h6>
+            <!-- Title slot. Can be prop -->
+            <h6>Generate Blogs</h6>
+            <!-- Form slot  -->
             <div class="rows">
                 <div class="row">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" v-model="title" />
+                    <label for="title">Number Blogs</label>
+                    <input type="text" id="title" v-model="numBlogs" />
                 </div>
                 <div class="row">
-                    <label for="content">Content</label>
-                    <textarea id="content" cols="30" rows="10" v-model="content"></textarea>
+                    <label for="title">Number of words in Title</label>
+                    <input type="text" id="title" v-model="numWords" />
                 </div>
-                <button @click="$emit('submit', id, title, content)">Submit</button>
+                <div class="row">
+                    <label for="content">Number of sentences in Content</label>
+                    <textarea id="content" cols="30" rows="10" v-model="numSentences"></textarea>
+                </div>
+                <button @click="$emit('submit-generate', numBlogs, numWords, numSentences)">Submit</button>
                 <button @click="$emit('cancel')">Cancel</button>
             </div>
         </article>
     </div>
 </template>
 
-<style scoped>
+<style>
 textarea {
     resize: none;
 }
@@ -81,6 +81,10 @@ textarea {
     flex-direction: column;
 
     margin: 1em 0;
+}
+
+label {
+    text-align: start;
 }
 
 h6 {

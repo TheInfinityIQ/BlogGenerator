@@ -18,10 +18,9 @@ builder.Services.AddCors(options =>
                       });
 });
 
-builder.Services.AddSingleton<DataRepository>(container =>
+builder.Services.AddSingleton(container =>
 {
     var db = new DataRepository();
-    db.AddBlogs(97);
     return db;
 });
 
@@ -75,6 +74,11 @@ app.MapPost("/blog", ([FromServices] DataRepository db, [FromBody] BlogDTO blog)
     db.Blogs.Add(toAdd);
 
     return Results.Created("https://localhost:7240/blog/{toAdd.Id}", blog);
+});
+
+app.MapPost("/blog/new", ([FromServices] DataRepository db, [FromBody] GenerateBlogsInstructionDTO gBIDTO) =>
+{
+    db.RegenerateBlogs(gBIDTO);
 });
 
 app.MapDelete("/blog/{id}", ([FromServices] DataRepository db, [FromRoute] int id) =>
